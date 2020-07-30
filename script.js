@@ -2,8 +2,9 @@ let canvas = document.getElementById("snake");
 let context = canvas.getContext("2d");
 let box = 32;
 let snake= [];
-let pontos = 0
+let pontos = 0;
 let velocidade = 100;
+let pont = document.getElementById("pontuacao");
 snake [0]= {
     x : 8 * box,
     y : 8 * box
@@ -56,7 +57,10 @@ function start(){
     {
         if(snake[0].x == snake[i].x && snake[0].y == snake[i].y){
             clearInterval(initGame);
-            alert('Game OVer');
+            alert('Game Over');
+            setTimeout(()=>{
+                document.location.reload(true);
+            },2000);
         }
     }
     criarBG();
@@ -87,14 +91,13 @@ function start(){
     }
     snake.unshift(newHead);
 
-    if(snake.length() > pontos)
+    if(snake.length > pontos)
     {
-        pontos = snake.length();
-        atualizaPontuacao();
+        pontos = snake.length;
+        pont.innerHTML = `Pontuação ${pontos}`;
+        
     }
 
 }
-const atualizaPontuacao = ()=>{
-    let pont = getElementById
-};
+
 let initGame = setInterval(start, velocidade);
