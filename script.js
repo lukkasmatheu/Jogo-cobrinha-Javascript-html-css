@@ -94,7 +94,7 @@ function start(){
     if(snake.length > pontos)
     {
         pontos = snake.length;
-        pont.innerHTML = `Pontuação ${pontos}`;
+        pont.innerHTML = `Pontuação : ${pontos}`;
         
     }
 
